@@ -42,7 +42,7 @@ jobs:
           TAG="$(echo $GITHUB_REF | cut -f3 -d'/')"
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"
-          echo "npm publish --tag"
+          echo "npm publish"
 
 
   publish-rc:
