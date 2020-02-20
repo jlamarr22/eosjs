@@ -1,13 +1,12 @@
-name: CI
+name: Publish Edge
 on:
   push:
-    branches-ignore:
+    branches:
       - develop
-  pull_request:
 
 jobs:
-  ci:
-    name: CI
+  publish-edge:
+    name: Publish Edge
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,3 +37,6 @@ jobs:
       - name: Test
         run: |
           yarn test
+      - name: Publish Edge
+        run: |
+          ./scripts/publish-edge.sh

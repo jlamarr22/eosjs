@@ -1,12 +1,11 @@
-name: Edge
+name: Publish RC
 on:
-  push:
-    branches:
-      - develop
+  release:
+    types: [prereleased]
 
 jobs:
-  publish-edge:
-    name: Publish Edge
+  publish-rc:
+    name: Publish RC
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,6 +36,6 @@ jobs:
       - name: Test
         run: |
           yarn test
-      - name: Publish Edge
+      - name: Publish RC
         run: |
-          ./scripts/publish-edge.sh
+          ./scripts/publish-tag.sh
