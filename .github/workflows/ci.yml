@@ -38,6 +38,5 @@ jobs:
       - name: Test
         run: |
           yarn test
-          echo "$NODE_AUTH_TOKEN"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
