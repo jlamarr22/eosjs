@@ -23,6 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Before Install
         run: |
+          [[ -e ./scripts/pre-install.sh ]] && ./scripts/pre-install.sh
           npm install -g npm@6.13.6
           yarn global add typescript
           yarn global add webpack
@@ -38,3 +39,7 @@ jobs:
       - name: Test
         run: |
           yarn test
+      - name: Publish Edge TESTING
+        run: |
+          COMMIT=${GITHUB_SHA:0:7}
+          echo $COMMIT
