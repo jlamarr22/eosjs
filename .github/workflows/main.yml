@@ -22,9 +22,9 @@ jobs:
           npm install -g npm@6.13.6
           yarn global add typescript
           yarn global add webpack
-          node --version
-          npm --version
-          yarn --version
+          echo "node $(node --version)"
+          echo "npm $(npm --version)"
+          echo "yarn $(yarn --version)"
       - name: Install
         run: |
           yarn install
