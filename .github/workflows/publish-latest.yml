@@ -5,6 +5,7 @@ on:
 
 jobs:
   publish-latest:
+    if: "!github.event.release.prerelease"
     name: Publish Latest
     runs-on: ubuntu-latest
     strategy:
