@@ -1,10 +1,11 @@
 name: Publish RC
 on:
   release:
-    types: [prereleased]
+    types: [published]
 
 jobs:
   publish-rc:
+    if: "github.event.release.prerelease"
     name: Publish RC
     runs-on: ubuntu-latest
     strategy:
