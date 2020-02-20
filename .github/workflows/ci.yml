@@ -39,15 +39,3 @@ jobs:
       - name: Test
         run: |
           yarn test
-      - name: Publish RC
-        run: |
-          . ./scripts/publish-utils.sh
-          setup_git
-          COMMIT=${GITHUB_SHA:0:7}
-          VERSION="v$(cat package.json | grep version | cut -f2 -d ":" | tr -d '",\ ')"
-          TEST="v21.0.0-rc2" # Later set to GITHUB_REF.
-          [[ "$VERSION" == "$TEST" ]] || exit 1
-          npm version -no-git-tag-version $TEST --allow-same-version
-          git commit -a -m "Updating version [skip ci]"
-          cp .npmrc.template $HOME/.npmrc 
-          echo "npm publish --tag RC"

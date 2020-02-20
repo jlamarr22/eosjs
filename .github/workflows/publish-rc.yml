@@ -38,4 +38,10 @@ jobs:
           yarn test
       - name: Publish RC
         run: |
-          ./scripts/publish-tag.sh
+          . ./scripts/publish-utils.sh
+          setup_git
+          echo $GITHUB_REF
+          echo "npm version -no-git-tag-version $TAG"
+          echo "git commit -a -m Updating version [skip ci]"
+          echo "cp .npmrc.template $HOME/.npmrc"
+          echo "npm publish --tag RC"
