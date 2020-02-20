@@ -27,7 +27,7 @@ jobs:
           echo "yarn $(yarn --version)"
       - name: Install
         run: |
-          yarn build
+          yarn
       - name: Lint
         run: |
           yarn lint
