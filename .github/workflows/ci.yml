@@ -23,7 +23,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Before Install
         run: |
-          [[ -e ./scripts/pre-install.sh ]] && ./scripts/pre-install.sh
           npm install -g npm@6.13.6
           yarn global add typescript
           yarn global add webpack
