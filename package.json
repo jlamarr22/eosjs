@@ -1,5 +1,6 @@
 {
-  "name": "eosjs",
+  "name": "@blockone/sarnette-eosjs",
+  "private": true,
   "version": "21.0.0-rc1",
   "description": "Talk to eos API",
   "main": "dist/index.js",
