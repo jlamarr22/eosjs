@@ -42,5 +42,4 @@ jobs:
           COMMIT=${GITHUB_SHA:0:7}
           echo "npm version prerelease -preid "${COMMIT}" -no-git-tag-version"
           echo "git commit -a -m "Updating version [skip ci]"
-          echo "cp .npmrc.template $HOME/.npmrc"
           echo "npm publish --tag edge"

@@ -42,7 +42,6 @@ jobs:
           TAG="$(echo $GITHUB_REF | cut -f3 -d'/')"
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"
-          echo "cp .npmrc.template $HOME/.npmrc"
           echo "npm publish --tag"
 
 
@@ -84,5 +83,4 @@ jobs:
           TAG="$(echo $GITHUB_REF | cut -f3 -d'/')"
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"
-          echo "cp .npmrc.template $HOME/.npmrc"
           echo "npm publish --tag RC"
