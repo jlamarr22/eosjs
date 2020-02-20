@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "derp"
 . "${TRAVIS_BUILD_DIR}/scripts/publish-utils.sh";
 
 echo "Running on branch/tag ${TRAVIS_BRANCH}":
