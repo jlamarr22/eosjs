@@ -43,6 +43,8 @@ jobs:
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"
           echo "npm publish"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 
   publish-rc:
@@ -84,3 +86,5 @@ jobs:
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"
           echo "npm publish --tag RC"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
