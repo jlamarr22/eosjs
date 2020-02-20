@@ -24,7 +24,6 @@ jobs:
           yarn global add webpack
           node --version
           npm --version
-          nvm --version
           yarn --version
       - name: Install
         run: |
