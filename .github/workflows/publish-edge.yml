@@ -39,4 +39,10 @@ jobs:
           yarn test
       - name: Publish Edge
         run: |
-          ./scripts/publish-edge.sh
+          . ./scripts/publish-utils.sh
+          setup_git
+          COMMIT=${GITHUB_SHA:0:7}
+          npm version prerelease -preid "${COMMIT}" -no-git-tag-version
+          git commit -a -m "Updating version [skip ci]"
+          cp .npmrc.template $HOME/.npmrc 
+          echo "npm publish --tag edge"
