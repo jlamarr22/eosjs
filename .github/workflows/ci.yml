@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Before Install
         run: |
-        [[ -e ./scripts/install-deps.sh ]] && ./scripts/install-deps.sh
+          [[ -e ./scripts/install-deps.sh ]] && ./scripts/install-deps.sh
       - name: Install
         run: |
           yarn
