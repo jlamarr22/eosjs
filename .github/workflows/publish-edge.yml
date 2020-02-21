@@ -32,8 +32,8 @@ jobs:
           . ./scripts/publish-utils.sh
           setup_git
           COMMIT=${GITHUB_SHA:0:7}
-          echo "npm version prerelease -preid "${GITHUB_RUN_NUMBER}-${COMMIT}" -no-git-tag-version"
-          echo "git commit -a -m Updating version [skip ci]"
-          echo "npm publish --tag edge"
+          npm version prerelease -preid "${GITHUB_RUN_NUMBER}-${COMMIT}" -no-git-tag-version
+          git commit -a -m Updating version [skip ci]
+          npm publish --tag edge
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
