@@ -30,9 +30,3 @@ jobs:
       - name: Test
         run: |
           yarn test
-      - name: Fossa
-        run: |
-          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
-          fossa analyze --output
-        env:
-          FOSSA_API_KEY: ${{ secrets.FOSSA_PUSH_KEY }}
