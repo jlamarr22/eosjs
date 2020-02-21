@@ -18,14 +18,6 @@ jobs:
         with:
           node-version: '12.14.1'
           registry-url: 'https://registry.npmjs.org'
-      - name: Before Install
-        run: |
-          npm install -g npm@6.13.6
-          yarn global add typescript
-          yarn global add webpack
-          echo "node $(node --version)"
-          echo "npm $(npm --version)"
-          echo "yarn $(yarn --version)"
       - name: Install
         run: |
           yarn

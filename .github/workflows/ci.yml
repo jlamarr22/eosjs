@@ -21,9 +21,6 @@ jobs:
         uses: actions/setup-node@1c5c1375b3817ad821719597effe8e3d6f764930
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Before Install
-        run: |
-          if [[ -e ./scripts/install-deps.sh ]]; then ./scripts/install-deps.sh; fi
       - name: Install
         run: |
           yarn
