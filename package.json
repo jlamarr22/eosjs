@@ -1,7 +1,7 @@
 {
   "name": "@blockone/sarnette-eosjs",
   "private": true,
-  "version": "17.0.4-rc5",
+  "version": "17.0.4-rc7",
   "description": "Talk to eos API",
   "main": "dist/index.js",
   "scripts": {
