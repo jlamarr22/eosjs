@@ -1,7 +1,7 @@
 {
   "name": "@sarnette/sarnette-eosjs",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2-rc",
   "description": "Talk to eos API",
   "main": "dist/index.js",
   "scripts": {
@@ -22,11 +22,11 @@
     "docs-serve": "python -m SimpleHTTPServer",
     "docs-publish": "sh .docs/scripts/publish.sh"
   },
-  "author": "block.one",
+  "author": "sarnette",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EOSIO/eosjs.git"
+    "url": "https://github.com/scottarnette/eosjs.git"
   },
   "dependencies": {
     "@babel/runtime": "7.8.3",
