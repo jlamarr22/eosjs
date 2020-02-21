@@ -31,6 +31,7 @@ jobs:
         run: |
           . ./scripts/publish-utils.sh
           setup_git
+          ensure_version_match
           TAG="$(echo $GITHUB_REF | cut -f3 -d'/')"
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"
@@ -66,6 +67,7 @@ jobs:
         run: |
           . ./scripts/publish-utils.sh
           setup_git
+          ensure_version_match
           TAG="$(echo $GITHUB_REF | cut -f3 -d'/')"
           echo "npm version -no-git-tag-version $TAG"
           echo "git commit -a -m Updating version [skip ci]"

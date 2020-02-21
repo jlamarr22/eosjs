@@ -14,3 +14,9 @@ setup_git() {
   # This associates the API Key with the account
   echo "https://${GITHUB_API_KEY}:@github.com" > .git/credentials
 }
+
+ensure_version_match() {
+  VERSION="v$(cat package.json | grep version | cut -f2 -d ":" | tr -d '",\ ')"
+  TAG="$(echo $GITHUB_REF | grep tags | cut -f3 -d'/')"
+  [[ "$VERSION" == "$TEST" ]] && echo "Versions match." && exit 0 || exit 1
+}
