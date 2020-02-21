@@ -34,6 +34,6 @@ jobs:
           COMMIT=${GITHUB_SHA:0:7}
           npm version prerelease -preid "${GITHUB_RUN_NUMBER}-${COMMIT}" -no-git-tag-version
           git commit -a -m "Updating version [skip ci]"
-          npm publish --tag edge
+          npm publish --access public --tag edge
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
