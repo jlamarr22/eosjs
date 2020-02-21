@@ -23,12 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Before Install
         run: |
-          npm install -g npm@6.13.6
-          yarn global add typescript
-          yarn global add webpack
-          echo "node $(node --version)"
-          echo "npm $(npm --version)"
-          echo "yarn $(yarn --version)"
+        [[ -e ./scripts/install-deps.sh ]] && ./scripts/install-deps.sh
       - name: Install
         run: |
           yarn
