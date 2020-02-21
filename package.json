@@ -1,7 +1,7 @@
 {
   "name": "@sarnette/sarnette-eosjs",
   "private": true,
-  "version": "0.0.2-rc1",
+  "version": "0.0.2-rc2",
   "description": "Talk to eos API",
   "main": "dist/index.js",
   "scripts": {
