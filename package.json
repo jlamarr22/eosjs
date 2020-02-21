@@ -1,5 +1,5 @@
 {
-  "name": "@blockone/sarnette-eosjs",
+  "name": "@sarnette/sarnette-eosjs",
   "private": true,
   "version": "0.0.1",
   "description": "Talk to eos API",
