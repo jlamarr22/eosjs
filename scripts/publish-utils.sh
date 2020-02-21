@@ -20,5 +20,5 @@ ensure_version_match() {
   TAG="$(echo $GITHUB_REF | grep tags | cut -f3 -d'/')"
   echo "version: $VERSION"
   echo "tag: $TAG"
-  [[ "$VERSION" == "$TEST" ]] && echo "Versions match." || exit 1
+  [[ "$VERSION" == "$TAG" ]] && echo "Versions match." || exit 1
 }
