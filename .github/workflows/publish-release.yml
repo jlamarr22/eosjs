@@ -32,7 +32,7 @@ jobs:
           . ./scripts/publish-utils.sh
           setup_git
           ensure_version_match
-          git commit -a -m "Updating version [skip ci]"
+          git commit -a -m "Updating version [skip ci]" --allow-empty
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -66,7 +66,7 @@ jobs:
           . ./scripts/publish-utils.sh
           setup_git
           ensure_version_match
-          git commit -a -m "Updating version [skip ci]"
+          git commit -a -m "Updating version [skip ci]" --allow-empty
           npm publish --access public --tag RC
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
