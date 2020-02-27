@@ -2,7 +2,7 @@ name: Publish Edge
 on:
   push:
     branches:
-      - edge-test
+      - develop
 
 jobs:
   publish-edge:
