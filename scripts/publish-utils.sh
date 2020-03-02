@@ -7,7 +7,10 @@ setup_git() {
 }
 
 ensure_version_match() {
+  echo "ensure_version_match"
   VERSION="v$(cat package.json | grep version | cut -f2 -d ":" | tr -d '",\ ')"
+  echo "VERSION: ${VERSION}";
   TAG="$(echo $GITHUB_REF | grep tags | cut -f3 -d'/')"
+  echo "TAG: ${TAG}";
   [[ "$VERSION" == "$TAG" ]] && echo "Versions match." || exit 1
 }
