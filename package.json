@@ -1,7 +1,7 @@
 {
   "name": "@jlamarr22/eosjs",
   "version": "21.0.4",
-  "description": "Talk to eos API",
+  "description": "Talk to eos API2",
   "main": "dist/index.js",
   "scripts": {
     "cypress": "./scripts/run-cypress.sh",
