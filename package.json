@@ -1,6 +1,6 @@
 {
   "name": "@jlamarr22/eosjs",
-  "version": "22.0.01",
+  "version": "22.0.1",
   "description": "Talk to eos API2",
   "main": "dist/index.js",
   "scripts": {
