@@ -7,10 +7,10 @@ setup_git() {
 }
 
 ensure_version_match() {
-  echo "ensure_version_match"
+  echo "::debug file=publish-utils.sh,line=10::ensure_version_match"
   VERSION="v$(cat package.json | grep version | cut -f2 -d ":" | tr -d '",\ ')"
-  echo "VERSION: ${VERSION}";
+  echo "::debug file=publish-utils.sh,line=12::VERSION-${VERSION}"
   TAG="$(echo $GITHUB_REF | grep tags | cut -f3 -d'/')"
-  echo "TAG: ${TAG}";
+  echo "::debug file=publish-utils.sh,line=14::TAG-${TAG}"
   [[ "$VERSION" == "$TAG" ]] && echo "Versions match." || exit 1
 }
