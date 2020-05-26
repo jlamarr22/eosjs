@@ -31,6 +31,7 @@
     "@babel/runtime": "7.8.3",
     "@types/elliptic": "6.4.10",
     "elliptic": "6.5.2",
+    "hash.js": "1.1.7",
     "pako": "1.0.11"
   },
   "devDependencies": {
@@ -53,9 +54,13 @@
     "ts-loader": "5.3.3",
     "tslint": "5.12.1",
     "tslint-eslint-rules": "5.4.0",
-    "typescript": "3.3.3",
+    "typescript": "3.8.3",
     "webpack": "4.41.5",
     "webpack-cli": "3.2.3"
+  },
+  "resolutions": {
+    "minimist": "1.2.5",
+    "yargs-parser": "18.1.2"
   },
   "jest": {
     "automock": false,
