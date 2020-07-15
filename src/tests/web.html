@@ -9,13 +9,13 @@
         <script>
             const privateKey = '5JuH9fCXmU3xbj8nRmhPZaVrxxXrdPaRmZLW1cznNTmTQR2Kg5Z'; // replace with 'bob' account private key
             const r1PrivateKey = 'PVT_R1_GrfEfbv5at9kbeHcGagQmvbFLdm6jqEpgE1wsGbrfbZNjpVgT'
-            /* new accounts for testing can be created by unlocking a cleos wallet then calling: 
+            /* new accounts for testing can be created by unlocking a cleos wallet then calling:
             * 1) cleos create key --to-console (copy this privateKey & publicKey)
-            * 2) cleos wallet import 
+            * 2) cleos wallet import
             * 3) cleos create account bob publicKey
             * 4) cleos create account alice publicKey
             */
-        
+
             const rpc = new eosjs_jsonrpc.JsonRpc('http://localhost:8888');
             const signatureProvider = new eosjs_jssig.JsSignatureProvider([privateKey, r1PrivateKey]);
             const wasmAbiProvider = new eosjs_wasmabi.WasmAbiProvider();
@@ -40,7 +40,7 @@
                 })
               ]);
             };
-        
+
             const EXECUTING = 'Executing Test', SUCCESS = 'Success', FAILED = 'Failed';
             let resultsLabel, transactionResponse, transactionSignatures, failedAsPlanned;
 
@@ -63,11 +63,11 @@
                 }]
               }, config);
             }
-        
+
             const testTransactWithConfigBlocksBehind = async (e) => {
                 resultsLabel = e.target;
                 resultsLabel.innerText = EXECUTING;
-        
+
                 try {
                     transactionResponse = await transactWithConfig({ blocksBehind: 3, expireSeconds: 30 }, 'transactWithBlocksBehind');
                 } catch (error) {
@@ -76,7 +76,7 @@
                     console.error('Transact With Config Blocks Behind Test Failure: ', error.message);
                     return false;
                 }
-        
+
                 if (transactionResponse.transaction_id) {
                     resultsLabel.className = "success";
                     resultsLabel.innerText = SUCCESS;
@@ -109,7 +109,7 @@
               resultsLabel.innerText = FAILED;
               return false;
             }
-        
+
             const transactWithoutConfig = async () => {
                 const transactionResponse = await transactWithConfig({ blocksBehind: 3, expireSeconds: 30 }, 'transactWithoutConfig');
                 const blockInfo = await rpc.get_block(transactionResponse.processed.block_num - 3);
@@ -117,7 +117,7 @@
                 const timePlusTen = currentDate.getTime() + 10000;
                 const timeInISOString = (new Date(timePlusTen)).toISOString();
                 const expiration = timeInISOString.substr(0, timeInISOString.length - 1);
-        
+
                 return await api.transact({
                     expiration,
                     ref_block_num: blockInfo.block_num & 0xffff,
@@ -138,11 +138,11 @@
                     }]
                 });
             };
-        
+
             const testTransactWithoutConfig = async (e) => {
                 resultsLabel = e.target;
                 resultsLabel.innerText = EXECUTING;
-        
+
                 try {
                     transactionResponse = await transactWithoutConfig();
                 } catch (error) {
@@ -151,7 +151,7 @@
                     console.error('Transact without Config Test Failure: ', error.message);
                     return false;
                 }
-        
+
                 if (transactionResponse.transaction_id) {
                     resultsLabel.className = "success";
                     resultsLabel.innerText = SUCCESS;
@@ -185,11 +185,11 @@
               resultsLabel.innerText = FAILED;
               return false;
             }
-        
+
             const testTransactWithoutBroadcast = async (e) => {
                 resultsLabel = e.target;
                 resultsLabel.innerText = EXECUTING;
-        
+
                 try {
                     transactionSignatures =
                       await transactWithConfig({ broadcast: false, blocksBehind: 3, expireSeconds: 30 }, 'transactWithoutBroadcast');
@@ -199,7 +199,7 @@
                     console.error('Transact without Broadcast Test Failure: ', error.message);
                     return false;
                 }
-        
+
                 if(transactionSignatures.signatures && transactionSignatures.serializedTransaction) {
                     resultsLabel.className = "success";
                     resultsLabel.innerText = SUCCESS;
@@ -209,13 +209,13 @@
                 resultsLabel.innerText = FAILED;
                 return false;
             };
-        
+
             const broadcastResult = async (signaturesAndPackedTransaction) => await api.pushSignedTransaction(signaturesAndPackedTransaction);
-        
+
             const testBroadcastResult = async (e) => {
                 resultsLabel = e.target;
                 resultsLabel.innerText = EXECUTING;
-        
+
                 try {
                     transactionSignatures =
                       await transactWithConfig({ broadcast: false, blocksBehind: 3, expireSeconds: 30 }, 'transactWithoutBroadcast2');
@@ -226,7 +226,7 @@
                     console.error('Broadcast Transaction Test Failure: ', error.message);
                     return false;
                 }
-        
+
                 if (transactionResponse.transaction_id) {
                     resultsLabel.className = "success";
                     resultsLabel.innerText = SUCCESS;
@@ -397,7 +397,7 @@
               resultsLabel.innerText = FAILED;
               return false;
             };
-        
+
             const transactShouldFail = async () => await api.transact({
                 actions: [{
                     account: 'eosio.token',
@@ -414,11 +414,11 @@
                     },
                 }]
             });
-        
+
             const testTransactShouldFail = async (e) => {
                 resultsLabel = e.target;
                 resultsLabel.innerText = EXECUTING;
-        
+
                 try {
                     await transactShouldFail();
                 } catch (e) {
@@ -432,13 +432,13 @@
                 resultsLabel.innerText = FAILED;
                 return false;
             }
-            
+
             const rpcShouldFail = async () => await rpc.get_block(-1);
-        
+
             const testRpcShouldFail = async (e) => {
                 resultsLabel = e.target;
                 resultsLabel.innerText = EXECUTING;
-        
+
                 try {
                     await rpcShouldFail();
                 } catch (e) {
@@ -452,7 +452,7 @@
                 resultsLabel.innerText = FAILED;
                 return false;
             }
-        
+
             const runAllTests = async () => {
                 const buttons = document.getElementsByTagName('button');
                 for (var i = 1; i < buttons.length; i++) {
